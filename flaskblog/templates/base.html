@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+<body>
+    <header class="site-header">
+        <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+            <div class="container">
+                <a href="/" class="navbar-brand mr-4">Flask Blog</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarToggle">
+                    <div class="navbar-nav mr-auto">
+                        <a href="{{ url_for('home') }}" class="nav-item nav-link">Home</a>
+                        <a href="{{ url_for('about') }}" class="nav-item nav-link">About</a>
+                    </div>
+                    <div class="navbar-nav">
+                        <a href="{{ url_for('login') }}" class="nav-item nav-link">Login</a>
+                        <a href="{{ url_for('register') }}" class="nav-item nav-link">Register</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main role="main" class="container">
+        <div class="row">
+            <div class="col-md-8">
+                {% with messages = get_flashed_messages( with_categories = true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ category}}">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                {% block content %}{% endblock %}
+            </div>
+            <div class="col-md-4">
+                <div class="content-section">
+                    <h3>Our Sidebar</h3>
+                    <p class="text-muted">You can put any information here you'd like</p>
+                    <ul>
+                        <li>Latest Posts</li>
+                        <li>Announcements</li>
+                        <li>Calendar</li>
+                        <li>etc</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+<head>
+    <meta charset="UTF-8">
+    {% if title %}
+        <title>Flask Blog - {{ title }}</title>
+    {% else %}
+        <title>Flask Blog</title>
+    {% endif %}
+</head>
+</html>
