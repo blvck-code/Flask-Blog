@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="site.db" uuid="0e5c27e2-111e-49f0-a690-9b3ffeedf042">
+    <data-source source="LOCAL" name="site.db" uuid="b10e3d57-280b-48b7-aebd-a198628078d5">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/site.db</jdbc-url>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/flaskblog/site.db</jdbc-url>
       <driver-properties>
         <property name="enable_load_extension" value="true" />
       </driver-properties>
